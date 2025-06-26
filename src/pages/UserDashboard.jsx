@@ -1,6 +1,7 @@
 // src/pages/UserDashboard.jsx
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import CarCard from "../components/CarCard";
 import UserInfo from "../components/UserInfo";
 import { auth, db } from "../services/firebase";
@@ -47,6 +48,7 @@ function UserDashboard() {
   return (
     <div className="p-6">
       <UserInfo />
+
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-xl font-bold text-gray-800">Available Cars</h1>
         <input
@@ -57,12 +59,29 @@ function UserDashboard() {
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
+
+      {/* ✅ Admin Dashboard Button (Visible to all users) */}
+      <div className="mb-4 text-right">
+        <Link
+          to="/admin"
+          className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        >
+          Go to Admin Dashboard
+        </Link>
+      </div>
+
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filteredCars.map((car) => (
-          <CarCard key={car.id} car={car} showBookButton onBook={() => handleBook(car)} />
+          <CarCard
+            key={car.id}
+            car={car}
+            showBookButton
+            onBook={() => handleBook(car)}
+          />
         ))}
       </div>
     </div>
   );
 }
+
 export default UserDashboard;

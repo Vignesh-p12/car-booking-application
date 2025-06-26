@@ -1,6 +1,6 @@
 import { addDoc, collection } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth, db, storage } from "../services/firebase";
 
@@ -9,7 +9,20 @@ function AddCarForm() {
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [message, setMessage] = useState("");
+  const [authorized, setAuthorized] = useState(false);
   const navigate = useNavigate();
+
+  // ✅ Allow any signed-in user
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setAuthorized(true);
+      } else {
+        navigate("/"); // Redirect to login
+      }
+    });
+    return () => unsubscribe();
+  }, [navigate]);
 
   const handleChange = (e) => {
     setCar({ ...car, [e.target.name]: e.target.value });
@@ -29,12 +42,10 @@ function AddCarForm() {
     }
 
     try {
-      // Upload image to Firebase Storage
       const imageRef = ref(storage, `cars/${Date.now()}-${imageFile.name}`);
       await uploadBytes(imageRef, imageFile);
       const imageUrl = await getDownloadURL(imageRef);
 
-      // Add car to Firestore
       await addDoc(collection(db, "cars"), {
         ...car,
         price: parseFloat(car.price),
@@ -52,11 +63,8 @@ function AddCarForm() {
     }
   };
 
-  // ✅ Admin-only protection
-  if (auth.currentUser?.email !== "2021ec0713@svce.ac.in") {
-    navigate("/user");
-    return null;
-  }
+  // ❌ Don't render until authorization is checked
+  if (!authorized) return null;
 
   return (
     <div className="max-w-xl mx-auto bg-white p-6 rounded shadow mt-6">
@@ -65,7 +73,9 @@ function AddCarForm() {
       {message && (
         <div
           className={`text-sm mb-4 p-2 rounded ${
-            message.startsWith("✅") ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
+            message.startsWith("✅")
+              ? "bg-green-100 text-green-700"
+              : "bg-red-100 text-red-700"
           }`}
         >
           {message}
@@ -108,7 +118,6 @@ function AddCarForm() {
           required
         />
 
-        {/* Live Image Preview */}
         {imagePreview && (
           <img
             src={imagePreview}

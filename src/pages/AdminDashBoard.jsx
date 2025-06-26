@@ -1,3 +1,4 @@
+// src/pages/AdminDashboard.jsx
 import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import AddCarForm from "../components/AddCarForm";
@@ -8,16 +9,25 @@ import { db } from "../services/firebase";
 
 function AdminDashboard() {
   const [cars, setCars] = useState([]);
+
   const fetchCars = async () => {
     const querySnapshot = await getDocs(collection(db, "cars"));
-    const list = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    const list = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
     setCars(list);
   };
+
   const handleDelete = async (id) => {
     await deleteDoc(doc(db, "cars", id));
     fetchCars();
   };
-  useEffect(() => { fetchCars(); }, []);
+
+  useEffect(() => {
+    fetchCars();
+  }, []);
+
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-4">
@@ -39,4 +49,5 @@ function AdminDashboard() {
     </div>
   );
 }
+
 export default AdminDashboard;

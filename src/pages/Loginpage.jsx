@@ -1,3 +1,4 @@
+// src/pages/LoginPage.jsx
 import {
   GoogleAuthProvider,
   signInWithEmailAndPassword,
@@ -10,7 +11,6 @@ function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // 📧 Email/password login
   const loginWithEmail = async (e) => {
     e.preventDefault();
     try {
@@ -20,7 +20,6 @@ function LoginPage() {
     }
   };
 
-  // 🔐 Google sign-in
   const loginWithGoogle = async () => {
     try {
       const provider = new GoogleAuthProvider();
