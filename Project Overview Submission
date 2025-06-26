@@ -1,0 +1,61 @@
+Anthill Networks SDE Intern Tasks
+Task 1: Second-hand Car Buying Application
+Objective
+Develop a web-based application to facilitate the buying and selling of second-hand cars.
+Technology Stack
+Frontend: React (Knowledge of Redux and TypeScript is an added advantage)
+Database: Firebase or Supabase (alternatives are permissible)
+Backend: No backend development required
+Features and Roles
+Common Features
+Authentication: Integration with Google Auth
+Admin Role
+Car Management: Ability to add, update car details, and update pricing.
+Listing and Requests: View listings and manage purchase requests from users.
+User Role
+Car Search and Request: Users can search for cars and request to purchase them.
+Design Constraints
+Pages Required: A minimum of three pages; additional pages from the provided Figma design can be ignored.
+You are expected to create a responsive web version of the application
+Figma Design: Car Platform Design
+
+PROJECT STRUCTURE OVERVIEW : 
+car-booking-app/
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/
+│   │   ├── AddCarForm.jsx
+│   │   ├── CarCard.jsx
+│   │   ├── LogoutButton.jsx
+│   │   └── UserInfo.jsx
+│   ├── pages/
+│   │   ├── AdminDashboard.jsx
+│   │   ├── BookedCars.jsx
+│   │   ├── LoginPage.jsx
+│   │   └── UserDashboard.jsx
+│   ├── services/
+│   │   └── firebase.js
+│   ├── App.jsx
+│   └── main.jsx
+├── .gitignore
+├── package.json
+├── tailwind.config.js
+├── vite.config.js
+└── README.md
+| Feature              | Description                          |
+| -------------------- | ------------------------------------ |
+| **Login Page**       | Users can log in via Email or Google |
+| **User Dashboard**   | View cars and book                   |
+| **Admin Dashboard**  | View all cars and delete             |
+| **Add Car Form**     | Upload car info with image           |
+| **Firebase Auth**    | Used for login                       |
+| **Firestore DB**     | Stores car data and bookings         |
+| **Firebase Storage** | Stores images                        |
+| **React Router**     | Handles routing                      |
+| **Tailwind CSS**     | Clean responsive UI                  |
+
+Login Dashboard 
+User dashboard
+Admin dashboard
+The project website Url : https://carss-97ece.web.app 
