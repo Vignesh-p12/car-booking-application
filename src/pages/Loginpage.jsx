@@ -1,5 +1,8 @@
-// src/pages/LoginPage.jsx
-import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import {
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from "firebase/auth";
 import { useState } from "react";
 import { auth } from "../services/firebase";
 
@@ -7,7 +10,8 @@ function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const login = async (e) => {
+  // 📧 Email/password login
+  const loginWithEmail = async (e) => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
@@ -16,6 +20,7 @@ function LoginPage() {
     }
   };
 
+  // 🔐 Google sign-in
   const loginWithGoogle = async () => {
     try {
       const provider = new GoogleAuthProvider();
@@ -31,7 +36,7 @@ function LoginPage() {
         <div style={styles.image}></div>
         <div style={styles.form}>
           <h2 style={styles.title}>Welcome to Audi Car Booking</h2>
-          <form onSubmit={login}>
+          <form onSubmit={loginWithEmail}>
             <div style={styles.group}>
               <label>Email</label>
               <input
@@ -51,8 +56,14 @@ function LoginPage() {
               />
             </div>
             <div style={styles.group}>
-              <button style={styles.loginButton} type="submit">Login</button>
-              <button style={styles.googleButton} type="button" onClick={loginWithGoogle}>
+              <button style={styles.loginButton} type="submit">
+                Login
+              </button>
+              <button
+                style={styles.googleButton}
+                type="button"
+                onClick={loginWithGoogle}
+              >
                 Sign in with Google
               </button>
             </div>
@@ -71,8 +82,6 @@ const styles = {
     alignItems: "center",
     justifyContent: "center",
     fontFamily: "Montserrat, sans-serif",
-    backgroundColor:"darkblue",
-
   },
   container: {
     display: "flex",
@@ -82,14 +91,12 @@ const styles = {
     overflow: "hidden",
     boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)",
   },
- image: {
-  flex: 1,
-  background: "url('https://i.postimg.cc/zBQ0y6Tf/bmw-3-0-csl-2022-04.jpg')",
-  backgroundSize: "cover",       // optional: makes sure image covers the area
-  backgroundPosition: "center", 
-   // optional: centers the image
-},
-
+  image: {
+    flex: 1,
+    background: "url('https://i.postimg.cc/zBQ0y6Tf/bmw-3-0-csl-2022-04.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  },
   form: {
     flex: 1,
     padding: "50px",
