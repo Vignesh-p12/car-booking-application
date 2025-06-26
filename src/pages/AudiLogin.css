@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  overflow: hidden;
+  width: 900px;
+  max-width: 100%;
+}
+
+.login-image {
+  flex: 1;
+  background: url('https://i.postimg.cc/KzxJBmgJ/Audi-A6.jpg') center/cover no-repeat;
+}
+
+.login-form {
+  flex: 1;
+  padding: 50px;
+}
+
+.login-form h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #2c5364;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.form-group button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #0077cc;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form-group button:hover {
+  background-color: #005fa3;
+}
+
+.google-btn {
+  background-color: #db4437;
+  margin-top: 10px;
+}

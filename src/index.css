@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🌐 Global Styles */
+body {
+  @apply bg-gray-50 text-gray-800;
+}
+
+input {
+  @apply border rounded p-2 w-full outline-none focus:ring-2 focus:ring-blue-400;
+}
+
+.card {
+  @apply bg-white shadow-md rounded p-4 mb-4;
+}
+
+.btn {
+  @apply bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition;
+}
+
+.btn-outline {
+  @apply border border-blue-600 text-blue-600 px-4 py-2 rounded hover:bg-blue-50 transition;
+}
+
+.container {
+  @apply max-w-4xl mx-auto p-4;
+}
+
+.heading {
+  @apply text-2xl font-semibold mb-2;
+}
+
+.text-muted {
+  @apply text-gray-600;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+body {
+  @apply bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-white;
+}
+
+button {
+  @apply transition duration-200;
+}
+
+.container {
+  @apply max-w-4xl mx-auto px-4;
+}
+

@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Chevrolet Suburban 2021",
+    "price": 27000,
+    "mileage": 90,
+    "fuelType": "Petrol",
+    "year": 2021,
+    "imageUrl": "https://i.postimg.cc/RVz2Gzx5/Chevrolet-Suburban-2021.jpg"
+  },
+  {
+    "name": "BMW M5 2022",
+    "price": 32000,
+    "mileage": 80,
+    "fuelType": "Petrol",
+    "year": 2022,
+    "imageUrl": "https://i.postimg.cc/sD7Gd7LG/BMW-M5-2022.avif"
+  },
+  {
+    "name": "Audi A6",
+    "price": 29500,
+    "mileage": 70,
+    "fuelType": "Diesel",
+    "year": 2020,
+    "imageUrl": "https://i.postimg.cc/KzxJBmgJ/Audi-A6.jpg"
+  },
+  {
+    "name": "Mercedes GLA",
+    "price": 31000,
+    "mileage": 65,
+    "fuelType": "Petrol",
+    "year": 2021,
+    "imageUrl": "https://i.postimg.cc/zX8HNVYd/Mercedes-GLA.jpg"
+  },
+  {
+    "name": "Toyota Fortuner",
+    "price": 35000,
+    "mileage": 100,
+    "fuelType": "Diesel",
+    "year": 2022,
+    "imageUrl": "https://i.postimg.cc/dVHkcyd8/Toyo.jpg"
+  },
+  {
+    "name": "Kia Seltos",
+    "price": 28000,
+    "mileage": 85,
+    "fuelType": "Petrol",
+    "year": 2021,
+    "imageUrl": "https://i.postimg.cc/65DCGLxG/Kia-Seltos.jpg"
+  }
+]
